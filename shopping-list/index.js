@@ -1,8 +1,8 @@
 function addingItems(){
-    $('#js-shopping-list-form').submit(function(){
+    $('#js-shopping-list-form').submit( event => {
         event.preventDefault();
-        let textInput = $("shopping-list-entry").val();
-        $(".shopping-item").html(textInput);
+        let textInput = $(".js-shopping-list-entry").find('shopping-list-entry').val();
+        $(".shopping-item").txt(textInput);
     });
 };
 
