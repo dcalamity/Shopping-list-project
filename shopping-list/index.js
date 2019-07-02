@@ -1,12 +1,13 @@
 function addToList(){
-    $('#js-shopping-list-form').submit(event => {
+    $('#js-shopping-list-form').submit( event => {
         event.preventDefault();
 
         let textInput = $(this).find('#shopping-list-entry').val();
         
-       // console.log(textInput.val());
+       // console.log(textInput);
        
-        $('.shopping-list').prepend($(
+        $('.shopping-list').append(
+            
             `<li>
             <span class="shopping-item">${textInput}</span>
             <div class="shopping-item-controls">
@@ -18,14 +19,14 @@ function addToList(){
               </button>
             </div>
             </li>`
-          ));
+          );
     });
 }
 $(addToList);
 
 
 function checkItem(){
-    $('.shopping-item-toggle').on('click', function(event) {
+    $('.shopping-list').on('click','.shopping-item-toggle', function(event) {
       // alert('check has been pressed');
         
         //console.log($(this));
@@ -36,7 +37,7 @@ function checkItem(){
 $(checkItem);
 
 function deleteItem(){
-    $('.shopping-item-delete').on('click', function(event) {
+    $('.shopping-list').on('click','.shopping-item-delete', function(event) {
         $(this).parents('li').remove();
     })
 } 
